@@ -1,0 +1,15 @@
+{
+  "action.rotp_waytoheaven.whitesnake_frases": "The 14 phrases",
+  "action.rotp_waytoheaven.cmoon_heaven": "Heaven Quest",
+  "action.rotp_waytoheaven.cmoon_heaven.param": "Heaven Quest | %s %s %s",
+
+  "item.rotp_waytoheaven.bone": "Bone",
+
+  "jojo.message.action_condition.no_c_moon": "You do not know the details of The Way to Heaven",
+  "jojo.message.action_condition.no_madeinheaven": "You do not know Made in Heaven",
+  "jojo.message.action_condition.no_bone": "You need 36 sinners souls",
+  "jojo.message.action_condition.cm_heaven": "You have not reached the right point yet",
+
+  "heaven.chat.command.lib.info": "Information on how to get \"Made in Heaven\":\n1. To obtain C-Moon you need WhiteSnake:\n- To obtain Bone:\n > Kill 36 sinners (e.g pillagers)\n- Use \"The 14 Phrases\" action\n2. You need to get Resolve 4 to obtain ability on C-Moon called \"Heaven Quest\":\n- Use the ability at the coordinates listed in the name of the ability or in the chat",
+  "heaven.chat.quest": "Coordinates for Made in Heaven: %s %s %s"
+}

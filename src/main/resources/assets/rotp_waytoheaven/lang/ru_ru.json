@@ -1,0 +1,14 @@
+{
+  "action.rotp_waytoheaven.whitesnake_frases": "14 Фраз",
+  "action.rotp_waytoheaven.cmoon_heaven": "Небесный квест",
+  "action.rotp_waytoheaven.cmoon_heaven.param": "Небесный квест | %s %s %s",
+  "item.rotp_waytoheaven.bone": "Кость",
+
+  "jojo.message.action_condition.no_c_moon": "Ты не знаешь детали The Way to Heaven",
+  "jojo.message.action_condition.no_madeinheaven": "Ты не знаешь Made in Heaven",
+  "jojo.message.action_condition.no_bone": "Вам нужно 36 душ грешников",
+  "jojo.message.action_condition.cm_heaven": "Вы еще не достигли нужной точки",
+
+  "heaven.chat.command.lib.info": "Информация о том, как получить \"Made in Heaven\":\n1. Чтобы получить C-Moon, вам нужен WhiteSnake:\n- Чтобы получить Кость:\n > Убить 36 грешников (например, мародеров)\n- Используйте действие \"14 фраз\"\n2. Чтобы получить способность на C-Moon под названием \"Небесный квест\", вам нужно получить Resolve 4:\n- Используйте способность в координатах, указанных в названии способности или в чате.",
+  "heaven.chat.quest": "Координаты для Made in Heaven: %s %s %s"
+}
