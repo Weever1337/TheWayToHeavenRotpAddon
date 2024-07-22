@@ -6,9 +6,8 @@ import com.github.standobyte.jojo.action.stand.StandEntityAction;
 import com.github.standobyte.jojo.entity.stand.StandEntity;
 import com.github.standobyte.jojo.entity.stand.StandEntityTask;
 import com.github.standobyte.jojo.power.impl.stand.IStandPower;
-
+import com.github.standobyte.jojo.util.mc.MCUtil;
 import it.hurts.weever.rotp_waytoheaven.init.InitItems;
-import it.hurts.weever.rotp_waytoheaven.init.InitStands;
 import it.hurts.weever.rotp_waytoheaven.item.BoneItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,16 +17,12 @@ import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 
 public class WSFrases extends StandEntityAction {
-
     public WSFrases(StandEntityAction.Builder builder) {
         super(builder);
     }
 
     protected ActionConditionResult checkSpecificConditions(LivingEntity user, IStandPower power, ActionTarget target) {
-        if (InitStands.C_MOON.get() == null) {
-            return conditionMessage("no_c_moon");
-        }
-        if (checkBone((PlayerEntity) user,false)) {
+        if (rewritedCheckBone((PlayerEntity) user,false)) {
             return ActionConditionResult.POSITIVE;
         }
         return conditionMessage("no_bone");
@@ -37,17 +32,16 @@ public class WSFrases extends StandEntityAction {
     public void standPerform(World world, StandEntity standEntity, IStandPower userPower, StandEntityTask task) {
         if (!world.isClientSide()) {
             PlayerEntity user = (PlayerEntity) userPower.getUser();
-            checkBone(user, true);
-            userPower.clear();
-            userPower.fullStandClear();
-            userPower.givePower(InitStands.C_MOON.get());
+            rewritedCheckBone(user, true);
+            MCUtil.runCommand(user, "stand clear @s");
+            MCUtil.runCommand(user, "stand give @s rotp_cm:cmoon true");
         }
     }
 
     @Override
     public void holdTick(World world, LivingEntity user, IStandPower power, int ticksHeld, ActionTarget target, boolean requirementsFulfilled) {
         if(!world.isClientSide()){
-            power.getUser().addEffect(new EffectInstance(Effects.CONFUSION,200,4, false, false, false));
+            power.getUser().addEffect(new EffectInstance(Effects.CONFUSION,100,4, false, false, false));
             power.getUser().addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN,10, 1, false, false, false));
         }
     }
@@ -65,6 +59,20 @@ public class WSFrases extends StandEntityAction {
                             stack.shrink(stack.getCount());
                         }
                     }
+                }
+            }
+        }
+        return result;
+    }
+
+    public static boolean rewritedCheckBone(PlayerEntity player, boolean remove) {
+        boolean result = false;
+        ItemStack itemStack = player.getOffhandItem();
+        if (itemStack.getItem() == InitItems.BONE_ITEM.get()) {
+            if (itemStack.hasTag()) {
+                result = itemStack.getTag().getInt("sinners") >= BoneItem.MAX_SINNERS;
+                if (remove) {
+                    itemStack.shrink(itemStack.getCount());
                 }
             }
         }

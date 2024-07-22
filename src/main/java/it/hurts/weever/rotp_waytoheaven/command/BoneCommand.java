@@ -5,16 +5,13 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import it.hurts.weever.rotp_waytoheaven.init.InitItems;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.TranslationTextComponent;
 
 public class BoneCommand {
 
     public static void register(CommandDispatcher<CommandSource> pDispatcher) {
-        pDispatcher.register(Commands.literal("bone").requires(ctx -> ctx.hasPermission(0))
+        pDispatcher.register(Commands.literal("bone").requires(ctx -> ctx.hasPermission(4))
                 .executes(ctx -> giveBone(ctx.getSource()))
         );
     }

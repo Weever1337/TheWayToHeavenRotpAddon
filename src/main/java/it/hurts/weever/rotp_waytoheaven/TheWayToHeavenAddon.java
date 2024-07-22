@@ -1,13 +1,14 @@
 package it.hurts.weever.rotp_waytoheaven;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import it.hurts.weever.rotp_waytoheaven.init.*;
-
+import it.hurts.weever.rotp_waytoheaven.init.InitItems;
+import it.hurts.weever.rotp_waytoheaven.init.InitSounds;
+import it.hurts.weever.rotp_waytoheaven.init.InitStands;
+import it.hurts.weever.rotp_waytoheaven.init.InitTags;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(TheWayToHeavenAddon.MOD_ID)
 public class TheWayToHeavenAddon {
