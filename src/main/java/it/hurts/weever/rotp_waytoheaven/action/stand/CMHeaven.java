@@ -18,14 +18,6 @@ public class CMHeaven extends StandEntityAction {
         super(builder);
     }
 
-    protected ActionConditionResult checkSpecificConditions(LivingEntity user, IStandPower power, ActionTarget target) {
-        if (true) {
-            return ActionConditionResult.POSITIVE;
-        } else {
-            return conditionMessage("cm_heaven");
-        }
-    }
-
     @Override
     public void holdTick(World level, LivingEntity user, IStandPower userPower, int ticksHeld, ActionTarget target, boolean requirementsFulfilled) {
         if (!level.isClientSide()) {

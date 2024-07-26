@@ -40,12 +40,12 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="rotp_cm"
 mandatory=true
-versionRange="[1,2)"
+versionRange="[1.4.3,2)"
 ordering="AFTER"
 side="BOTH"
 [[dependencies.${mod_id}]]
 modId="rotp_mih"
 mandatory=true
-versionRange="[1,2)"
+versionRange="[1.1.0,2)"
 ordering="AFTER"
 side="BOTH"
