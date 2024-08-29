@@ -34,7 +34,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="rotp_whitesnake"
 mandatory=true
-versionRange="[1,2)"
+versionRange="[BETA-1.0.0,2)"
 ordering="AFTER"
 side="BOTH"
 [[dependencies.${mod_id}]]

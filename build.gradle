@@ -82,7 +82,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
     implementation fg.deobf("standobyte.jojo:JJBA-RipplesOfThePast:${main_mod_version}")
-    implementation fg.deobf("rotp.archlunatic1057:RotP-Whitesnake:1.0.1")
+    implementation fg.deobf("rotp.silentevermore:RotP-Whitesnake-BETA:1.0.2")
     implementation fg.deobf("rotp.prunus1337:RotP-CMoon:1.4.3")
     implementation fg.deobf("rotp.prunus1337:RotP-MadeInHeaven:1.1.1")
     implementation fg.deobf("curse.maven:hourglass-511172:3488913")

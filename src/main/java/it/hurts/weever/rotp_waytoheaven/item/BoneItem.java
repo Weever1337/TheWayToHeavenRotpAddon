@@ -22,5 +22,4 @@ public class BoneItem extends Item {
     public double getDurabilityForDisplay(ItemStack stack) {
         return 1 - ((double) getSinners(stack) / (double) MAX_SINNERS);
     }
-
 }
