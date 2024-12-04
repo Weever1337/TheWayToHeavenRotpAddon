@@ -10,7 +10,6 @@ import com.github.standobyte.jojo.util.mc.MCUtil;
 import it.hurts.weever.rotp_waytoheaven.init.InitItems;
 import it.hurts.weever.rotp_waytoheaven.item.BoneItem;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -22,7 +21,7 @@ public class WSFrases extends StandEntityAction {
     }
 
     protected ActionConditionResult checkSpecificConditions(LivingEntity user, IStandPower power, ActionTarget target) {
-        if (rewritedCheckBone((PlayerEntity) user,false)) {
+        if (rewritedCheckBone(user,false)) {
             return ActionConditionResult.POSITIVE;
         }
         return conditionMessage("no_bone");
@@ -31,7 +30,7 @@ public class WSFrases extends StandEntityAction {
     @Override
     public void standPerform(World world, StandEntity standEntity, IStandPower userPower, StandEntityTask task) {
         if (!world.isClientSide()) {
-            PlayerEntity user = (PlayerEntity) userPower.getUser();
+            LivingEntity user = userPower.getUser();
             rewritedCheckBone(user, true);
             MCUtil.runCommand(user, "stand clear @s");
             MCUtil.runCommand(user, "stand give @s rotp_cm:cmoon true");
@@ -46,26 +45,7 @@ public class WSFrases extends StandEntityAction {
         }
     }
 
-    public static boolean checkBone(PlayerEntity player,boolean delete){
-        boolean result = false;
-        for(int i=0;i<player.inventory.getContainerSize();i++){
-            ItemStack stack = player.inventory.getItem(i);
-            if(stack.getItem() == InitItems.BONE_ITEM.get()){
-                if(stack.hasTag()){
-                    result = stack.getTag().getInt("sinners") >= BoneItem.MAX_SINNERS;
-                    if(result){
-                        i = player.inventory.getContainerSize();
-                        if(delete){
-                            stack.shrink(stack.getCount());
-                        }
-                    }
-                }
-            }
-        }
-        return result;
-    }
-
-    public static boolean rewritedCheckBone(PlayerEntity player, boolean remove) {
+    public static boolean rewritedCheckBone(LivingEntity player, boolean remove) {
         boolean result = false;
         ItemStack itemStack = player.getOffhandItem();
         if (itemStack.getItem() == InitItems.BONE_ITEM.get()) {

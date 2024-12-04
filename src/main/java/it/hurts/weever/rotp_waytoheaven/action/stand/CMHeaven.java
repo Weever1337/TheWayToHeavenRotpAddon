@@ -1,6 +1,5 @@
 package it.hurts.weever.rotp_waytoheaven.action.stand;
 
-import com.github.standobyte.jojo.action.ActionConditionResult;
 import com.github.standobyte.jojo.action.ActionTarget;
 import com.github.standobyte.jojo.action.stand.StandEntityAction;
 import com.github.standobyte.jojo.power.impl.stand.IStandPower;
